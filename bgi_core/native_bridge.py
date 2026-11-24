@@ -94,9 +94,10 @@ def extract_archive(arc_path: str, output_dir: str, target_file: str = None) -> 
     if target_file:
         cmd.append(target_file)
 
-    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if res.returncode != 0:
-        raise RuntimeError(f"Failed to extract ARC:\n{res.stderr or res.stdout}")
+        err_msg = res.stderr.decode("utf-8", errors="replace") if res.stderr else res.stdout.decode("utf-8", errors="replace")
+        raise RuntimeError(f"Failed to extract ARC:\n{err_msg}")
 
     # List extracted files
     extracted = [f for f in os.listdir(output_dir) if os.path.isfile(os.path.join(output_dir, f))]

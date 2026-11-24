@@ -5,7 +5,7 @@
 
 struct File
 {
-	char name[16];
+	char name[128];
 	uint32_t offset;
 	uint32_t size;
 };
@@ -138,18 +138,12 @@ uint32_t read32(FILE * file)
 
 struct File read_next_file_metadata_v1(FILE * file)
 {
-	int j;
 	struct File f;
-	fread(&f.name, 1, 16, file);
+	memset(&f, 0, sizeof(f));
+	fread(f.name, 1, 16, file);
+	f.name[16] = '\0';
 	f.offset = read32(file);
 	f.size = read32(file);
-	
-	/* remove non ascii bytes */
-	for(j = 0;j < 16;j++)
-	{
-		if(f.name[j] != 0 && (f.name[j] < 32 || f.name[j] > 127))
-			f.name[j] = '_';
-	}
 	
 	/* padding */
 	read32(file);
@@ -160,25 +154,16 @@ struct File read_next_file_metadata_v1(FILE * file)
 
 struct File read_next_file_metadata_v2(FILE * file)
 {
-	int j;
 	struct File f;
-	fread(&f.name, 1, 16, file);
-	
-	/* padding */
-	fseek(file, 20 * 4, SEEK_CUR);
+	memset(&f, 0, sizeof(f));
+	fread(f.name, 1, 96, file);
+	f.name[96] = '\0';
 	
 	f.offset = read32(file);
 	f.size = read32(file);
 	
-	/* remove non ascii bytes */
-	for(j = 0;j < 16;j++)
-	{
-		if(f.name[j] != 0 && (f.name[j] < 32 || f.name[j] > 127))
-			f.name[j] = '_';
-	}
-	
-	/* padding */
-	fseek(file, 6 * 4, SEEK_CUR);
+	/* padding 24 bytes */
+	fseek(file, 24, SEEK_CUR);
 	
 	return f;
 }

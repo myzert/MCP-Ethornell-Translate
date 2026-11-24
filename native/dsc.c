@@ -245,8 +245,12 @@ int dsc_save(uint8_t * data, uint32_t size, const char * filename)
 	else
 	{
 		FILE * f = fopen(filename, "wb");
-		fwrite(data, size, 1, f);
-		fclose(f);
+		if (f != NULL) {
+			fwrite(data, size, 1, f);
+			fclose(f);
+		} else {
+			ret = 0;
+		}
 	}
 	
 	return ret;
