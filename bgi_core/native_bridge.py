@@ -163,7 +163,8 @@ def pack_buriko_arc20(input_dir: str, output_arc_path: str, reference_arc_path: 
         arc_file.write(struct.pack("<I", count))
 
         # File table: each entry is 128 bytes (96 bytes name, 4 bytes offset, 4 bytes size, 24 bytes null)
-        data_offset = 16 + (count * 128)
+        # Note: In BURIKO ARC20, offsets are strictly relative to the end of the header table (starts at 0).
+        data_offset = 0
         for fp in file_paths:
             size = os.path.getsize(fp)
             name_bytes = os.path.basename(fp).encode("shift_jis", errors="replace")[:96]
