@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "bgi-ethornell-translator": {
+      "command": "python3",
+      "args": [
+        "/sdcard/game_tl/MCP-Ethornell-Translate/server.py"
+      ],
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

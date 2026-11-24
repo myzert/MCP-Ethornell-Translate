@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C compilation artifacts
+*.o
+*.obj
+native/ethornell
+native/ethornell.exe
+native/ethornelld
+*.so
+*.dll
+*.dylib
+
+# Test and temporary directories
+test_extract/
+test_pack_dir/
+tmp/
+*.bak
+.DS_Store
