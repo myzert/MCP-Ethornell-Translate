@@ -32,6 +32,12 @@ TOOLS = [
     {
         "name": "bgi_unpack_arc",
         "description": "Unpack BGI / Ethornell .arc archive using native C engine. Automatically decrypts DSC compressed scripts, CBG graphics, and BSE containers.",
+        "annotations": {
+            "readOnlyHint": False,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -54,6 +60,12 @@ TOOLS = [
     {
         "name": "bgi_pack_arc",
         "description": "Pack a directory of files back into a valid BURIKO ARC20 archive. Can use original .arc as reference to preserve exact file ordering.",
+        "annotations": {
+            "readOnlyHint": False,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -76,6 +88,12 @@ TOOLS = [
     {
         "name": "bgi_decode_script",
         "description": "Disassemble and decode a BGI bytecode scenario script into a clean, editable JSON dialogue file with speaker names, choices, and conversation context.",
+        "annotations": {
+            "readOnlyHint": False,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -98,6 +116,12 @@ TOOLS = [
     {
         "name": "bgi_encode_script",
         "description": "Recompile and inject translated dialogue JSON back into the BGI bytecode scenario script without text truncation or space padding.",
+        "annotations": {
+            "readOnlyHint": False,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -124,6 +148,12 @@ TOOLS = [
     {
         "name": "bgi_translate",
         "description": "Translate visual novel dialogue items in a JSON file to any target language (e.g. 'id' for Indonesian, 'en' for English) with context awareness and glossary preservation.",
+        "annotations": {
+            "readOnlyHint": False,
+            "destructiveHint": False,
+            "idempotentHint": False,
+            "openWorldHint": True
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -154,6 +184,12 @@ TOOLS = [
     {
         "name": "bgi_get_info",
         "description": "Inspect an .arc archive or BGI script file to display detailed metadata (contained files, script version, line count, character list).",
+        "annotations": {
+            "readOnlyHint": True,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -168,6 +204,12 @@ TOOLS = [
     {
         "name": "bgi_generate_llm_prompt",
         "description": "Generate a visual-novel context prompt for LLMs to translate a batch of dialogue lines with high accuracy and persona consistency.",
+        "annotations": {
+            "readOnlyHint": True,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False
+        },
         "inputSchema": {
             "type": "object",
             "properties": {
