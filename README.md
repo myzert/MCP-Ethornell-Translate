@@ -7,6 +7,7 @@
 [![Model Context Protocol](https://img.shields.io/badge/MCP-Compatible-orange.svg)](https://modelcontextprotocol.io/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Android%20(Termux)-lightgrey.svg)]()
 [![Engine](https://img.shields.io/badge/VN%20Engine-BGI%20%2F%20Ethornell-purple.svg)]()
+[![M8ven Score](https://m8ven.ai/badge/mcp/myzert-mcp-ethornell-translate-pahzz7?v=30b439182894daa8578433ac58685c80)](https://m8ven.ai/mcp/myzert-mcp-ethornell-translate-pahzz7?s=readme) [![M8ven Score](https://m8ven.ai/badge/mcp/myzert/mcp-ethornell-translate)](https://m8ven.ai/mcp/myzert/mcp-ethornell-translate?s=readme)
 
 **High-Performance Model Context Protocol (MCP) Server & Visual Novel Translation Toolkit for BGI / Ethornell Engine.**
 
